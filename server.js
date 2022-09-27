@@ -2,7 +2,7 @@ const express = require('express');
 const studentRouter =require('./router/student')
 const staffRouter =require('./router/staff')
 
-require('./models/db');
+require('./database/db');
 var app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
