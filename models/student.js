@@ -1,34 +1,21 @@
-const { ObjectId } = require('mongoose');
 var mongoose = require('mongoose');
 const Schema = mongoose.Schema
+const { ObjectId } = require('mongoose');
 var studentSchema = new Schema({
-
-    name: {
-        type: String,
-        unique: true,
-        required: 'This field is required'
-    },
-    email: {
-        type: String,
-        unique: true,
-        required: 'This field is required'
-    },
-    phoneNumber: {
-        type: String,
-        unique:true
-    },
-    password:{
-        type: String,
-        unique:true,
-        required: 'This field is required'
-    },
     favourites:
-    [
-        {
-            type:ObjectId,
-            ref:'Teacher'
-        }
-    ]
-})
+        [
+            {
+                type: ObjectId,
+                ref: 'Staff'
+            },  
+        ],
+    attendence: {
+        type: Number,
+        default:0
+    },
+    reportingTime:{
+        type:[Date]
+    }
+} ,{timestamps:true})
 
 module.exports = mongoose.model('Student', studentSchema);
